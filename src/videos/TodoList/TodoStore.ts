@@ -10,6 +10,9 @@ export class TodoStoreImpl {
 
     todos: TodoItem[] = [];
 
+    //the variables are observables nd to update that observables you need actions
+    //the action in anything that mutates the state
+    //computed value does not change the store but gives more information the store
     constructor() {
         makeObservable(this, {
             todos: observable,
@@ -25,6 +28,7 @@ export class TodoStoreImpl {
             title,
             completed: false
         };
+        //with mobx you are allowed to mutate the state
         this.todos.push(item);
     }
 
